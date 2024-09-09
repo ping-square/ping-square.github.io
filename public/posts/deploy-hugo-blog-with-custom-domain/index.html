@@ -142,7 +142,7 @@
 
       
       &nbsp; · &nbsp;
-      1 min read
+      4 min read
       
     </p>
 
@@ -155,7 +155,15 @@
   
   <aside class="toc">
     <p><strong>Table of contents</strong></p>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </aside>
   
 
@@ -163,14 +171,115 @@
 
   <div class="single-content">
     <h1 id="introduction">Introduction</h1>
-<p>A blog is an amazing way to build your personal brand by sharing the knowledge, that we accumulate ever yday. Simply put, a blog is an academic paper with a broader audience and allows more flexibility in tone, structure, and writing stylee. This article aims to guide readers to build a static site on their local machine, then upload it to Github to finally publish it on a custom domain.</p>
+<p>A blog is an amazing way to build your personal brand by sharing the knowledge, that we accumulate every day. Simply put, a blog is an academic paper with a broader audience and allows more flexibility in tone, structure, and writing stylee. This article aims to guide readers to build a static site on their local machine, then upload it to Github to finally publish it on a custom domain.</p>
 <h1 id="what-is-hugo">What is Hugo</h1>
 <p><a href="https://gohugo.io/">Hugo</a> is one of the most popular open-source static site generator built with the Go programming language, known for its speed and flexibility. Other popular open-source static site generator alternatives include <a href="https://jekyllrb.com/">Jekyll</a> and <a href="https://getpelican.com/">Pelican</a>, which I will be covered in future tutorials.</p>
 <h1 id="why-choose-hugo">Why choose Hugo?</h1>
 <p>Not everyone is an HTMl programmer, and most people do not want to become one. It allows you to write content using the simple and intuitive <a href="https://www.markdownguide.org/">Markdown</a> syntax, while Hugo handles the conversion to HTML and publishing to your site. Hugo follows the Go language’s philosophy of simplicity, offering a gentle learning curve and comprehensive documentation. In this tutorial, I will explain why Hugo is a great choice for building a free blog.</p>
 <h1 id="setup-hugo-static-site">Setup Hugo Static Site</h1>
+<p>depending on the OS (Operating System) you are using, you can follow this <a href="https://gohugo.io/installation/">Tutorial</a> from the Hugo official website to setup Hugo on your personal machine. On the other hand, To install Hugo on macOS, follow these steps:</p>
+<!-- raw HTML omitted -->
+<ol>
+<li>
+<p>Open the <strong>Terminal</strong> (you can find it using Spotlight search or in <code>Applications &gt; Utilities &gt; Terminal</code>).</p>
+</li>
+<li>
+<p>Install Homebrew by running this command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/bin/bash -c <span style="color:#666;font-style:italic">&#34;</span><span style="font-weight:bold;text-decoration:underline">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span style="font-weight:bold;text-decoration:underline">)</span><span style="color:#666;font-style:italic">&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>After the installation completes, follow the instructions that appear in the Terminal to add Homebrew to your system&rsquo;s <code>PATH</code>.</p>
+<p>This typically involves running:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">echo</span> <span style="color:#666;font-style:italic">&#39;eval &#34;$(/opt/homebrew/bin/brew shellenv)&#34;&#39;</span> &gt;&gt; ~/.zprofile
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">eval</span> <span style="color:#666;font-style:italic">&#34;</span><span style="font-weight:bold;text-decoration:underline">$(</span>/opt/homebrew/bin/brew shellenv<span style="font-weight:bold;text-decoration:underline">)</span><span style="color:#666;font-style:italic">&#34;</span>
+</span></span></code></pre></div><p>Homebrew allows you to easily install and manage software on macOS, and this step ensures it&rsquo;s properly configured for future installations.</p>
+</li>
+</ol>
+<!-- raw HTML omitted -->
+<h4 id="step-2-install-hugo-via-homebrew">Step 2: Install Hugo via Homebrew</h4>
+<ol>
+<li>Run the following command in the Terminal to install Hugo:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install hugo
+</span></span></code></pre></div>This command tells Homebrew to download and install Hugo. Homebrew fetches the latest version of Hugo and installs it in the appropriate location.</li>
+</ol>
+<h4 id="step-3-verify-the-installation">Step 3: Verify the Installation</h4>
+<ol>
+<li>After installation, check that Hugo is installed correctly by running:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo version
+</span></span></code></pre></div>This verifies that Hugo is installed and gives you the version number, confirming that everything is set up properly.</li>
+</ol>
+<h4 id="step-4-create-a-new-hugo-site">Step 4: Create a New Hugo Site</h4>
+<p>Now that Hugo is installed, you can create your first site:</p>
+<ol>
+<li>
+<p>Create a new folder where you want to create your Hugo site and move to that folder. In my case, I created a folder called <em><code>project</code></em></p>
+</li>
+<li>
+<p>Navigate to the folder where you want to create your Hugo site:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir project
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">cd</span> project
+</span></span></code></pre></div></li>
+<li>
+<p>Run the command to create a new Hugo site:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site my-hugo-site
+</span></span></code></pre></div><p>This creates a new folder called <em><code>my-hugo-site</code></em> with the basic structure needed for a Hugo project.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls -l my-hugo-site
+</span></span><span style="display:flex;"><span>    total 8
+</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 3 dtp  staff  96 Sep  8 14:22 archetypes
+</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 assets
+</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 content
+</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 data
+</span></span><span style="display:flex;"><span>    -rw-r--r--@ 1 dtp  staff  83 Sep  8 14:22 hugo.toml
+</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 i18n
+</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 layouts
+</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 static
+</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 themes
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="step-5-add-a-theme-optional-but-recommended">Step 5: Add a Theme (Optional but recommended)</h4>
+<p>Hugo uses themes to style your site. You can add one by following these steps:</p>
+<p><a href="https://themes.gohugo.io/">Hugo themes</a> are designed to give various style to your blog. Go to <a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a> and select your theme. In my case I chose <em><code>PaperMod</code></em> theme. Then click on the theme to open it and finally click on the <strong>Download</strong> button to open the corresponding page in github containing a step-by-step <a href="https://github.com/adityatelange/hugo-PaperMod/wiki/Installation">tutorial</a> on how <em><code>PaperMod</code></em> theme should be installed.</p>
+<ol>
+<li>
+<p>Navigate into your new Hugo site:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">cd</span> my-hugo-site
+</span></span></code></pre></div></li>
+<li>
+<p>Initialize an empty Git repository in the current directory (<em><code>my-hugo-site</code></em>).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init
+</span></span></code></pre></div><p><a href="assets/img/first_image.png">Alt Text</a></p>
+</li>
+<li>
+<p>Clone the <em><code>PaperMod</code></em> theme  into the <em>themes</em> directory, adding it to your project as a <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git submodule</a>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add https://github.com/patrickDjembat/hugo-PaperMod.git themes/PaperMod
+</span></span></code></pre></div></li>
+<li>
+<p>Update the site configuration file (<code>hugo.toml</code>) to include the theme:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">echo</span> <span style="color:#666;font-style:italic">&#39;theme = &#34;PaperMod&#34;&#39;</span> &gt;&gt; hugo.toml
+</span></span></code></pre></div><p>This step initializes the site with a theme that determines the style and layout of your Hugo site. Hugo sites can use various themes available in its theme directory or on GitHub.</p>
+</li>
+</ol>
+<h4 id="step-6-build-and-serve-the-hugo-site">Step 6: Build and Serve the Hugo Site</h4>
+<ol>
+<li>
+<p>Run the following command to start a local server and see your new Hugo site:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -D
+</span></span></code></pre></div></li>
+<li>
+<p>Open a web browser and go to <code>http://localhost:1313</code> to view your site.
+The <code>hugo server</code> command runs a local web server and automatically reloads the site whenever you make changes. The <code>-D</code> flag includes any draft content.</p>
+</li>
+</ol>
+<hr>
 <h1 id="move-the-site-to-github">Move the Site to Github</h1>
 <h1 id="publish-to-a-custom-domain">Publish to a custom domain</h1>
+<!-- raw HTML omitted -->
+<p>This is a detailed explanation that will only be visible when the section is expanded.</p>
+<ul>
+<li>You can format text in <strong>bold</strong> or <em>italic</em>.</li>
+<li>You can also include links, images, or code blocks.</li>
+</ul>
+<!-- raw HTML omitted -->
 
     
   </div>
