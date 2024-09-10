@@ -14,11 +14,11 @@
 <link rel="icon" type="image/png" sizes="192x192" href="https://ping-square.com//android-chrome-192x192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="https://ping-square.com//apple-touch-icon.png">
 
-<meta name="description" content="This is a step-by-step tutorial that will guide the reader through the proccess of installing a blog for free and publishing it on a custom website."/>
+<meta name="description" content="This is a step-by-step tutorial that will guide the reader through the proccess of setting up a free blog with free hosting"/>
 
 <title>
     
-    Deploy a Hugo Powered blog to Github Pages and publish on a custom domain | PingSquare.com
+    Deploy a Hugo Powered blog to Github Pages | PingSquare.com
     
 </title>
 
@@ -115,20 +115,20 @@
     <a href="/posts/">Posts</a>
     <span class="breadcrumbs-separator"> > </span>
     
-    <a class="breadcrumbs-current" href="/posts/deploy-hugo-blog-with-custom-domain/">Deploy a Hugo Powered blog to Github Pages and publish on a custom domain</a>
+    <a class="breadcrumbs-current" href="/posts/deploy-hugo-blog-with-custom-domain/">Deploy a Hugo Powered blog to Github Pages</a>
 </div>
 
 
 
-<div  class="autonumber" >
+<div >
 
   <div class="single-intro-container">
 
     
 
-    <h1 class="single-title">Deploy a Hugo Powered blog to Github Pages and publish on a custom domain</h1>
+    <h1 class="single-title">Deploy a Hugo Powered blog to Github Pages</h1>
     
-    <p class="single-summary">How to deploy a blog Powered by Hugo to Github Pages With a custom domain hosted on Goddady.com</p>
+    <p class="single-summary">How do you get a blog for free along with free hosting...</p>
     
 
     
@@ -142,7 +142,7 @@
 
       
       &nbsp; · &nbsp;
-      4 min read
+      7 min read
       
     </p>
 
@@ -153,32 +153,20 @@
   
 
   
-  <aside class="toc">
-    <p><strong>Table of contents</strong></p>
-    <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </aside>
-  
 
   
 
   <div class="single-content">
     <h1 id="introduction">Introduction</h1>
-<p>A blog is an amazing way to build your personal brand by sharing the knowledge, that we accumulate every day. Simply put, a blog is an academic paper with a broader audience and allows more flexibility in tone, structure, and writing stylee. This article aims to guide readers to build a static site on their local machine, then upload it to Github to finally publish it on a custom domain.</p>
+<p>A blog is an amazing way to build your personal brand by sharing the knowledge, that we accumulate every day. Simply put, a blog is an academic paper with a broader audience that allows more flexibility in tone, structure, and writing stylee. This article aims to guide readers to setup a professional blog while not spending a dime.</p>
 <h1 id="what-is-hugo">What is Hugo</h1>
-<p><a href="https://gohugo.io/">Hugo</a> is one of the most popular open-source static site generator built with the Go programming language, known for its speed and flexibility. Other popular open-source static site generator alternatives include <a href="https://jekyllrb.com/">Jekyll</a> and <a href="https://getpelican.com/">Pelican</a>, which I will be covered in future tutorials.</p>
+<p><a href="https://gohugo.io/">Hugo</a> is one of the most popular open-source static site generator built with the Go programming language, known for its speed and flexibility. Other popular open-source static site generator alternatives include <a href="https://jekyllrb.com/">Jekyll</a> and <a href="https://getpelican.com/">Pelican</a>, which I will cover in future tutorials.</p>
 <h1 id="why-choose-hugo">Why choose Hugo?</h1>
-<p>Not everyone is an HTMl programmer, and most people do not want to become one. It allows you to write content using the simple and intuitive <a href="https://www.markdownguide.org/">Markdown</a> syntax, while Hugo handles the conversion to HTML and publishing to your site. Hugo follows the Go language’s philosophy of simplicity, offering a gentle learning curve and comprehensive documentation. In this tutorial, I will explain why Hugo is a great choice for building a free blog.</p>
+<p>Not everyone is an HTMl programmer, and most people do not want to become one. Hugo allows you to write content using the simple and intuitive <a href="https://www.markdownguide.org/">Markdown</a> syntax, while it handles the conversion to HTML and publishing to your site. Hugo follows the Go language’s philosophy of simplicity, gentle learning curve and comprehensive documentation.</p>
 <h1 id="setup-hugo-static-site">Setup Hugo Static Site</h1>
 <p>depending on the OS (Operating System) you are using, you can follow this <a href="https://gohugo.io/installation/">Tutorial</a> from the Hugo official website to setup Hugo on your personal machine. On the other hand, To install Hugo on macOS, follow these steps:</p>
-<!-- raw HTML omitted -->
+<h4 id="step-1-install-homebrew-if-you-dont-already-have-it">Step 1: Install Homebrew (if you don&rsquo;t already have it)</h4>
+<p><a href="https://brew.sh/">Homebrew</a> is a package manager for macOS, and it simplifies the installation of software.</p>
 <ol>
 <li>
 <p>Open the <strong>Terminal</strong> (you can find it using Spotlight search or in <code>Applications &gt; Utilities &gt; Terminal</code>).</p>
@@ -195,7 +183,6 @@
 </span></span></code></pre></div><p>Homebrew allows you to easily install and manage software on macOS, and this step ensures it&rsquo;s properly configured for future installations.</p>
 </li>
 </ol>
-<!-- raw HTML omitted -->
 <h4 id="step-2-install-hugo-via-homebrew">Step 2: Install Hugo via Homebrew</h4>
 <ol>
 <li>Run the following command in the Terminal to install Hugo:
@@ -209,77 +196,426 @@
 </span></span></code></pre></div>This verifies that Hugo is installed and gives you the version number, confirming that everything is set up properly.</li>
 </ol>
 <h4 id="step-4-create-a-new-hugo-site">Step 4: Create a New Hugo Site</h4>
-<p>Now that Hugo is installed, you can create your first site:</p>
+<p>Now that Hugo is installed, you can create your first static site:</p>
 <ol>
 <li>
 <p>Create a new folder where you want to create your Hugo site and move to that folder. In my case, I created a folder called <em><code>project</code></em></p>
 </li>
 <li>
 <p>Navigate to the folder where you want to create your Hugo site:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir project
-</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">cd</span> project
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir project     <span style="color:#888;font-style:italic"># create the folder</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">cd</span> project        <span style="color:#888;font-style:italic"># move to the folder created above</span>
 </span></span></code></pre></div></li>
 <li>
 <p>Run the command to create a new Hugo site:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site my-hugo-site
-</span></span></code></pre></div><p>This creates a new folder called <em><code>my-hugo-site</code></em> with the basic structure needed for a Hugo project.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls -l my-hugo-site
-</span></span><span style="display:flex;"><span>    total 8
-</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 3 dtp  staff  96 Sep  8 14:22 archetypes
-</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 assets
-</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 content
-</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 data
-</span></span><span style="display:flex;"><span>    -rw-r--r--@ 1 dtp  staff  83 Sep  8 14:22 hugo.toml
-</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 i18n
-</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 layouts
-</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 static
-</span></span><span style="display:flex;"><span>    drwxr-xr-x@ 2 dtp  staff  64 Sep  8 14:22 themes
-</span></span></code></pre></div></li>
+</span></span></code></pre></div><p>Keep in mind that you can change <code>my-hugo-site</code> to any name that best describes what you want.
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="Alt text for image" src=" /images/0_image.png">
+    </div>
+
+    
+</figure></p>
+<p>This creates a new folder called <em><code>my-hugo-site</code></em> with the basic structure needed for a Hugo project as listed below.
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="Alt text for image" src=" /images/3_image.png">
+    </div>
+
+    
+</figure></p>
+</li>
 </ol>
-<h4 id="step-5-add-a-theme-optional-but-recommended">Step 5: Add a Theme (Optional but recommended)</h4>
-<p>Hugo uses themes to style your site. You can add one by following these steps:</p>
-<p><a href="https://themes.gohugo.io/">Hugo themes</a> are designed to give various style to your blog. Go to <a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a> and select your theme. In my case I chose <em><code>PaperMod</code></em> theme. Then click on the theme to open it and finally click on the <strong>Download</strong> button to open the corresponding page in github containing a step-by-step <a href="https://github.com/adityatelange/hugo-PaperMod/wiki/Installation">tutorial</a> on how <em><code>PaperMod</code></em> theme should be installed.</p>
+<h4 id="step-5-add-a-theme-recommended">Step 5: Add a Theme (recommended)</h4>
+<p><a href="https://themes.gohugo.io/">Hugo themes</a> are tools you use to give you blog/site the look that you want. Go to <a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a> and select your theme. In my case I chose <em><code>PaperMod</code></em> theme. Then click on the theme to open it and finally click on the <strong>Download</strong> button to open the corresponding page in github which also contains a step-by-step <a href="https://github.com/adityatelange/hugo-PaperMod/wiki/Installation">tutorial</a> on how <em><code>PaperMod</code></em> theme should be installed.</p>
 <ol>
 <li>
 <p>Navigate into your new Hugo site:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">cd</span> my-hugo-site
 </span></span></code></pre></div></li>
 <li>
-<p>Initialize an empty Git repository in the current directory (<em><code>my-hugo-site</code></em>).</p>
+<p>Initialize Git in <em><code>my-hugo-site</code></em>, hence turning it into a local repository.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init
-</span></span></code></pre></div><p><a href="assets/img/first_image.png">Alt Text</a></p>
+</span></span></code></pre></div><p>initializing Git at this stage will make it possible to use the <code>git submodule</code> command bellow.
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="Alt text for image" src=" /images/first_image.png">
+    </div>
+
+    
+</figure></p>
 </li>
 <li>
 <p>Clone the <em><code>PaperMod</code></em> theme  into the <em>themes</em> directory, adding it to your project as a <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git submodule</a>.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add https://github.com/patrickDjembat/hugo-PaperMod.git themes/PaperMod
-</span></span></code></pre></div></li>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="Alt text for image" src=" /images/2_image.png">
+    </div>
+
+    
+</figure></p>
+</li>
 <li>
 <p>Update the site configuration file (<code>hugo.toml</code>) to include the theme:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">echo</span> <span style="color:#666;font-style:italic">&#39;theme = &#34;PaperMod&#34;&#39;</span> &gt;&gt; hugo.toml
-</span></span></code></pre></div><p>This step initializes the site with a theme that determines the style and layout of your Hugo site. Hugo sites can use various themes available in its theme directory or on GitHub.</p>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="Alt text for image" src=" /images/4_image.png">
+    </div>
+
+    
+</figure></p>
+<p>This step initializes the site with a theme that determines the style and layout of your Hugo site. Hugo sites can use various themes available in its theme directory or on GitHub.</p>
 </li>
 </ol>
 <h4 id="step-6-build-and-serve-the-hugo-site">Step 6: Build and Serve the Hugo Site</h4>
 <ol>
 <li>
-<p>Run the following command to start a local server and see your new Hugo site:</p>
+<p>Run the following command to start a local web server and see preview of your new Hugo site:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -D
-</span></span></code></pre></div></li>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="Alt text for image" src=" /images/5_image.png">
+    </div>
+
+    
+</figure></p>
+</li>
 <li>
 <p>Open a web browser and go to <code>http://localhost:1313</code> to view your site.
-The <code>hugo server</code> command runs a local web server and automatically reloads the site whenever you make changes. The <code>-D</code> flag includes any draft content.</p>
+The <code>hugo server -D</code> command runs a local web server and automatically reloads the site whenever you make changes. The <code>-D</code> flag includes any draft content.
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="Alt text for image" src=" /images/6_image.png">
+    </div>
+
+    
+</figure></p>
+</li>
+<li>
+<p>publish the site withoud deploying it</p>
 </li>
 </ol>
-<hr>
-<h1 id="move-the-site-to-github">Move the Site to Github</h1>
-<h1 id="publish-to-a-custom-domain">Publish to a custom domain</h1>
-<!-- raw HTML omitted -->
-<p>This is a detailed explanation that will only be visible when the section is expanded.</p>
-<ul>
-<li>You can format text in <strong>bold</strong> or <em>italic</em>.</li>
-<li>You can also include links, images, or code blocks.</li>
-</ul>
-<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo
+</span></span></code></pre></div><h1 id="move-the-site-to-github">Move the Site to Github</h1>
+<h4 id="step7-create-a-public-repository-on-github">Step7: Create a public repository on github</h4>
+<p>log into your <a href="https://github.com/">github account</a></p>
+<ol>
+<li>click on on <strong>Repositories</strong> then click on <strong>New repositoy</strong></li>
+<li>give a name to your repository. In my case I chose <code>kareersquare.github.io</code> where the suffix <code>github.io</code> is needed if you intend to publish this site using <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">github pages</a>.</li>
+<li>make your repository public by checking the box.</li>
+<li>DO not add a README.md file</li>
+<li>click on <strong>Create Repository</strong> at he bottom of the page.</li>
+</ol>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="Alt text for image" src=" /images/7_image.png">
+    </div>
+
+    
+</figure></p>
+<h4 id="step-8-push-the-static-hugo-site-local-repository-to-the-remote-repository">Step 8: push the static Hugo site (local repository) to the remote repository</h4>
+<ol>
+<li>When you create a new repository on GitHub, you still need to initialize and configure your local project as a Git repository before it can interact with the remote repository (<code>kareersquare.github.io</code>). The sequence of commands:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">echo</span> <span style="color:#666;font-style:italic">&#34;# ping-square.github.io&#34;</span> &gt;&gt; README.md  <span style="color:#888;font-style:italic"># create a README.md file</span>
+</span></span><span style="display:flex;"><span>git init                                     <span style="color:#888;font-style:italic"># This initializes a Git repository in your local project directory.</span>
+</span></span><span style="display:flex;"><span>git add README.md                            <span style="color:#888;font-style:italic"># This stages the README.md file for a commit</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#666;font-style:italic">&#34;first commit&#34;</span>                 <span style="color:#888;font-style:italic"># This creates the first commit in your local Git repository.</span>
+</span></span></code></pre></div><ol start="2">
+<li>push the static site to the remote repository (<code>kareersquare.github.io</code>)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git branch -M main                                                                  <span style="color:#888;font-style:italic"># renames the default branch to main</span>
+</span></span><span style="display:flex;"><span>git remote add origin https://github.com/KareerSquare/kareersquare.github.io.git    <span style="color:#888;font-style:italic"># This adds a remote repository (your GitHub repository) to your local Git configuration.</span>
+</span></span><span style="display:flex;"><span>git push -u origin main                                                             <span style="color:#888;font-style:italic"># This pushes your local changes to the main branch of the remote repository on GitHub</span>
+</span></span></code></pre></div><ol start="3">
+<li>If you check all the folders in the remote repository <code>kareersquare.github.io</code>, they do not match the files that were created under the local repository (<code>my-hugo-site</code>). And the capture below explains why:
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="Alt text for image" src=" /images/8_image.png">
+    </div>
+
+    
+</figure>
+Essentially, there are still files which are untracked. Let&rsquo;s fix that.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#666;font-style:italic">&#34;complete commit of my-hugo-site folder&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="Alt text for image" src=" /images/9_image.png">
+    </div>
+
+    
+</figure></p>
+<h1 id="publish-the-site-through-github-page">Publish the site through Github page</h1>
+<h4 id="change-the-build-and-deployment-source">Change the Build and deployment source</h4>
+<ol>
+<li>In the public repository we created earlier, that is <code>kareersquare.github.io</code>, click on <strong>Settings</strong></li>
+<li>then click on <strong>Pages</strong>.</li>
+<li>Finally, click on the arrow in front of <strong>Deploy from a branch</strong> and select <strong>Github Actions</strong>.
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="Alt text for image" src=" /images/10_image.png">
+    </div>
+
+    
+</figure></li>
+</ol>
+<h4 id="create-a-workflows-in-your-local-repository-my-hugo-site-">create a Workflows in your local repository (<code>my-hugo-site</code> )</h4>
+<ol>
+<li>Create an empty file in your local repository.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.github/workflows/hugo.yaml
+</span></span></code></pre></div><ol start="2">
+<li>Copy and paste the YAML below into the file you created. Change the branch name and Hugo version as needed.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#888;font-style:italic"># Sample workflow for building and deploying a Hugo site to GitHub Pages</span>
+</span></span><span style="display:flex;"><span>name: Deploy Hugo site to Pages
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>on:
+</span></span><span style="display:flex;"><span>  <span style="color:#888;font-style:italic"># Runs on pushes targeting the default branch</span>
+</span></span><span style="display:flex;"><span>  push:
+</span></span><span style="display:flex;"><span>    branches:
+</span></span><span style="display:flex;"><span>      - main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#888;font-style:italic"># Allows you to run this workflow manually from the Actions tab</span>
+</span></span><span style="display:flex;"><span>  workflow_dispatch:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"># Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages</span>
+</span></span><span style="display:flex;"><span>permissions:
+</span></span><span style="display:flex;"><span>  contents: read
+</span></span><span style="display:flex;"><span>  pages: write
+</span></span><span style="display:flex;"><span>  id-token: write
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"># Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.</span>
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"># However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.</span>
+</span></span><span style="display:flex;"><span>concurrency:
+</span></span><span style="display:flex;"><span>  group: <span style="color:#666;font-style:italic">&#34;pages&#34;</span>
+</span></span><span style="display:flex;"><span>  cancel-in-progress: <span style="font-weight:bold;text-decoration:underline">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"># Default to bash</span>
+</span></span><span style="display:flex;"><span>defaults:
+</span></span><span style="display:flex;"><span>  run:
+</span></span><span style="display:flex;"><span>    shell: bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>  <span style="color:#888;font-style:italic"># Build job</span>
+</span></span><span style="display:flex;"><span>  build:
+</span></span><span style="display:flex;"><span>    runs-on: ubuntu-latest
+</span></span><span style="display:flex;"><span>    env:
+</span></span><span style="display:flex;"><span>      HUGO_VERSION: 0.134.1
+</span></span><span style="display:flex;"><span>    steps:
+</span></span><span style="display:flex;"><span>      - name: Install Hugo CLI
+</span></span><span style="display:flex;"><span>        run: |<span style="color:#666;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#666;font-style:italic">          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+</span></span></span><span style="display:flex;"><span><span style="color:#666;font-style:italic">          &amp;&amp; sudo dpkg -i ${{ runner.temp }}/hugo.deb          </span>          
+</span></span><span style="display:flex;"><span>      - name: Install Dart Sass
+</span></span><span style="display:flex;"><span>        run: sudo snap install dart-sass
+</span></span><span style="display:flex;"><span>      - name: Checkout
+</span></span><span style="display:flex;"><span>        uses: actions/checkout@v4
+</span></span><span style="display:flex;"><span>        with:
+</span></span><span style="display:flex;"><span>          submodules: recursive
+</span></span><span style="display:flex;"><span>          fetch-depth: 0
+</span></span><span style="display:flex;"><span>      - name: Setup Pages
+</span></span><span style="display:flex;"><span>        id: pages
+</span></span><span style="display:flex;"><span>        uses: actions/configure-pages@v5
+</span></span><span style="display:flex;"><span>      - name: Install Node.js dependencies
+</span></span><span style="display:flex;"><span>        run: <span style="color:#666;font-style:italic">&#34;[[ -f package-lock.json || -f npm-shrinkwrap.json ]] &amp;&amp; npm ci || true&#34;</span>
+</span></span><span style="display:flex;"><span>      - name: Build with Hugo
+</span></span><span style="display:flex;"><span>        env:
+</span></span><span style="display:flex;"><span>          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+</span></span><span style="display:flex;"><span>          HUGO_ENVIRONMENT: production
+</span></span><span style="display:flex;"><span>          TZ: America/Los_Angeles
+</span></span><span style="display:flex;"><span>        run: |<span style="color:#666;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#666;font-style:italic">          hugo \
+</span></span></span><span style="display:flex;"><span><span style="color:#666;font-style:italic">            --gc \
+</span></span></span><span style="display:flex;"><span><span style="color:#666;font-style:italic">            --minify \
+</span></span></span><span style="display:flex;"><span><span style="color:#666;font-style:italic">            --baseURL &#34;${{ steps.pages.outputs.base_url }}/&#34;          </span>          
+</span></span><span style="display:flex;"><span>      - name: Upload artifact
+</span></span><span style="display:flex;"><span>        uses: actions/upload-pages-artifact@v3
+</span></span><span style="display:flex;"><span>        with:
+</span></span><span style="display:flex;"><span>          path: ./public
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#888;font-style:italic"># Deployment job</span>
+</span></span><span style="display:flex;"><span>  deploy:
+</span></span><span style="display:flex;"><span>    environment:
+</span></span><span style="display:flex;"><span>      name: github-pages
+</span></span><span style="display:flex;"><span>      url: ${{ steps.deployment.outputs.page_url }}
+</span></span><span style="display:flex;"><span>    runs-on: ubuntu-latest
+</span></span><span style="display:flex;"><span>    needs: build
+</span></span><span style="display:flex;"><span>    steps:
+</span></span><span style="display:flex;"><span>      - name: Deploy to GitHub Pages
+</span></span><span style="display:flex;"><span>        id: deployment
+</span></span><span style="display:flex;"><span>        uses: actions/deploy-pages@v4
+</span></span></code></pre></div><ol start="3">
+<li>publish the site withoud deploying it</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo
+</span></span></code></pre></div><ol start="4">
+<li>push the changes to the remote repository</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#666;font-style:italic">&#34;complete commit of my-hugo-site folder&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><ol start="5">
+<li>Verify that the workflow has been deployed to the remote repository
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="Alt text for image" src=" /images/11_image.png">
+    </div>
+
+    
+</figure></li>
+<li>you can verify the site created under <code>https://kareersquare.github.io/</code></li>
+</ol>
 
     
   </div>
