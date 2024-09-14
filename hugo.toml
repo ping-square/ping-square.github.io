@@ -19,10 +19,10 @@ colorPalette = 'default'
 hideHeader = false
 
 # Intro on main page, content is markdown
-homeIntroTitle = 'Hi!'
+homeIntroTitle = 'Welcome to the DjembaTron Universe!'
 homeIntroContent = """
-I am an Italian Software Engineer with a strong foundation in computer science and a passion for solving complex problems.
-I am interested in a range of topics, including algorithms, distributed systems, databases, and information retrieval.
+I am a Network Engineer with a passion for technologies as a mean for a fullfilling future.
+We used to love technology for its promises and its abilities to make our life easier. Now, with the advent of AI, we tend to look at technology like a potential enemy. Historically as human, we tend to destroy anything that scare us that is why my goal in the DjembaTron universe is to show everyone that technology is still an ally.
 """
 
 # Collection to display on home
