@@ -4,7 +4,6 @@ date = 2024-09-14T14:48:14-05:00
 draft = true
 summary = "How can you make sure that the Native VLAN does not become a trap..."
 description = "This is a step-by-step tutorial on how native VLAN can pause a security risk"
-draft = true
 toc = false
 readTime = true
 autonumber = false
